@@ -1,5 +1,3 @@
-[![](http://dockeri.co/image/notor93/docker-lighttpd-alpine)](https://index.docker.io/u/notor93/docker-lighttpd-alpine/)
-
 Lighttpd 1.4.45 
 =========
 Lighttpd server on linux alpine.
@@ -19,19 +17,9 @@ Lighttpd server on linux alpine.
 Add the following lines in an `docker-compose.yml` file:
 
     lighttpd:
-      image: notor93/docker-lighttpd-alpine
+      image: notor93/lighttpd
       ports:
         - "<http-port>:80"
-      volumes:
-        - "<conf-enabled-directory>:/etc/lighttpd/conf-enabled"
-        - "<project-directory>:/var/www"
-        
-    lighttpd:
-      container_name: lighttpd
-      image: notor/lighttpd
-      build: ./images/lighttpd
-      ports:
-        - "80:80"
       volumes:
         - "<project-directory>:/var/www/html"
         - "<project-log-directory>:/var/log/lighttpd"
