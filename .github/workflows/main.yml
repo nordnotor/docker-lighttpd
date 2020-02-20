@@ -4,21 +4,17 @@ on:
   push:
     branches:
       - master
-    tags:
-      - 'v*'
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Login to docker hub
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
-
       - name: Build image
         run: docker build -t ${GITHUB_REPOSITORY}:${IMAGE_TAG} .
-
       - name: Push to docker registry
         run: docker push ${GITHUB_REPOSITORY}:${IMAGE_TAG}
