@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Login to docker hub
-        run: docker login --username ${{secrets.DOCKER_USER}} --password "${{secrets.DOCKER_PASSWORD}}" docker.pkg.github.com
+        run: docker login --username ${{secrets.DOCKER_USER}} --password "${{secrets.GIT_TOKEN}}" docker.pkg.github.com
       - name: Build image
         run: docker build -t docker.pkg.github.com/nordnotor/docker-lighttpd/app:1.0.0 .
       - name: Push to docker registry
