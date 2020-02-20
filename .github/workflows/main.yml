@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Login to docker hub
-        run: docker login --username ${{secrets.DOCKER_USER}} --password ${{secrets.DOCKER_PASSWORD}}
+        run: echo "${{secrets.DOCKER_PASSWORD}}" | docker login --username ${{secrets.DOCKER_USER}}
       - name: Build image
         run: docker build -t ${GITHUB_REPOSITORY}:${IMAGE_TAG} .
       - name: Push to docker registry
