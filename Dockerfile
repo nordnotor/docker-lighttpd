@@ -12,7 +12,7 @@ RUN set -x \
     && adduser -u 82 -D -S -G www-data www-data \
     && addgroup www-data dev
 
-COPY rootfs/ /etc/lighttpd/
+COPY rootfs /etc/lighttpd/
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 
 RUN chmod u+x /usr/bin/entrypoint.sh
