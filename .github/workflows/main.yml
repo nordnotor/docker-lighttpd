@@ -15,6 +15,6 @@ jobs:
       - name: Login to docker hub
         run: docker login --username ${{secrets.DOCKER_USER}} --password "${{secrets.DOCKER_PASSWORD}}" docker.pkg.github.com
       - name: Build image
-        run: docker build -t ${GITHUB_REPOSITORY}:${IMAGE_TAG} .
+        run: docker build -t docker.pkg.github.com:v1 .
       - name: Push to docker registry
-        run: docker push ${GITHUB_REPOSITORY}:${IMAGE_TAG}
+        run: docker push docker.pkg.github.com:v1
